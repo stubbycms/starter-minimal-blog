@@ -26,7 +26,7 @@ export async function BlogPosts() {
               <p className="text-neutral-600 dark:text-neutral-400 tabular-nums min-w-[120px] whitespace-nowrap">
                 {formatDate(post.frontmatter.publishedAt, false)}
               </p>
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight flex-1">
+              <p className="text-neutral-900 dark:text-neutral-100 flex-1">
                 {post.frontmatter.title}
               </p>
             </div>
