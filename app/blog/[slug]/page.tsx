@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { formatDate, getBlogPost, removeFrontMatter } from "app/blog/utils";
 import { baseUrl } from "app/sitemap";
+import Link from "next/link";
 
 export async function generateMetadata({ params }) {
   let post = await getBlogPost(params.slug);
@@ -89,6 +90,14 @@ export default async function Blog({ params }) {
       <article className="prose">
         <CustomMDX source={removeFrontMatter(post.content)} />
       </article>
+      <div className="my-8 flex justify-between">
+        {post.previousPage && (
+          <Link href={`/blog/${post.previousPage.slug}`}>← Previous</Link>
+        )}
+        {post.nextPage && (
+          <Link href={`/blog/${post.nextPage.slug}`}>Next →</Link>
+        )}
+      </div>
     </section>
   );
 }
