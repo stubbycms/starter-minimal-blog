@@ -4,8 +4,13 @@ import { formatDate, getBlogPost, removeFrontMatter } from "app/blog/utils";
 import { baseUrl } from "app/sitemap";
 import Link from "next/link";
 
-export async function generateMetadata({ params }) {
-  let post = await getBlogPost(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = (await params).slug;
+  let post = await getBlogPost(slug);
 
   if (!post) {
     return;
@@ -46,8 +51,12 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function Blog({ params }) {
-  let post = await getBlogPost(params.slug);
+export default async function Blog({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  let post = await getBlogPost((await params).slug);
 
   if (!post) {
     notFound();

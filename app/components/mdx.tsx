@@ -4,7 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
 import remarkGfm from "remark-gfm";
-import { Note, Tip, Steps, Step } from "@stubbycms/components-react";
+import { Note, Tip, Steps, Step } from "@stubbycms/ui";
 
 const options = {
   mdxOptions: {

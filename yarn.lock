@@ -384,10 +384,10 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
-"@stubbycms/components-react@^1.11.0":
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/@stubbycms/components-react/-/components-react-1.11.0.tgz#f1c0bd9453de144a0cfa5cb24523da93f61d743a"
-  integrity sha512-AWbMTlJXZNN+bjpTnfev7Rn1tw3VMNuKJBENjTfmLp/36yLhV77ms88DWfI1rzA88ZEonvduiv7si5fetuEj+g==
+"@stubbycms/ui@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@stubbycms/ui/-/ui-1.0.0.tgz#5113730d2c3c31eeff562176b786cee9ac447e39"
+  integrity sha512-SYwh801TOmyatf4ro/zIxY1wAEGKCOhzdK24DqQxP7/wqmZ+saJkmKN0A8utZdkt2wqgYRVQjworzsYQbKTx8g==
   dependencies:
     clsx "^2.1.1"
     lucide-react "^0.453.0"
