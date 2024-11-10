@@ -7,17 +7,9 @@ export function removeFrontMatter(content: string) {
 }
 
 export async function getBlogPost(slug: string) {
-  const res = await fetch(`https://stubby.io/api/get`, {
-    method: "POST",
-    body: JSON.stringify({
-      siteId: "b2kcdid",
-      requestFor: "aPage",
-      pageSlug: slug,
-    }),
-    headers: {
-      Authorization: `Bearer ${process.env.STUBBY_API_KEY}`,
-    },
-  });
+  const res = await fetch(
+    `https://stubby.io/api/v1/sites/${process.env.STUBBY_SITE_ID}/pages/${slug}?apiKey=${process.env.STUBBY_API_KEY}`
+  );
 
   if (res.ok && res.status < 300) {
     const data = await res.json();
@@ -28,16 +20,9 @@ export async function getBlogPost(slug: string) {
 }
 
 export async function getBlogPosts() {
-  const res = await fetch(`https://stubby.io/api/get`, {
-    method: "POST",
-    body: JSON.stringify({
-      siteId: "b2kcdid",
-      requestFor: "allPages",
-    }),
-    headers: {
-      Authorization: `Bearer ${process.env.STUBBY_API_KEY}`,
-    },
-  });
+  const res = await fetch(
+    `https://stubby.io/api/v1/sites/${process.env.STUBBY_SITE_ID}/folders?apiKey=${process.env.STUBBY_API_KEY}`
+  );
 
   if (res.ok && res.status < 300) {
     const data = await res.json();
