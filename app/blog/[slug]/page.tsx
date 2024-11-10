@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
     publishedAt: publishedTime,
     summary: description,
     image,
-  } = post.output.frontmatter;
+  } = post.metadata;
 
   let ogImage = image
     ? image
@@ -62,16 +62,14 @@ export default async function Blog({ params }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
-            headline: post.output.frontmatter.title,
-            datePublished: post.output.frontmatter.publishedAt,
-            dateModified: post.output.frontmatter.publishedAt,
-            description: post.output.frontmatter.summary,
-            image: post.output.frontmatter.image
-              ? `${baseUrl}${post.output.frontmatter.image}`
-              : `/og?title=${encodeURIComponent(
-                  post.output.frontmatter.title
-                )}`,
-            url: `${baseUrl}/blog/${post.output.frontmatter.slug}`,
+            headline: post.metadata.title,
+            datePublished: post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt,
+            description: post.metadata.summary,
+            image: post.metadata.image
+              ? `${baseUrl}${post.metadata.image}`
+              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
+            url: `${baseUrl}/blog/${post.metadata.slug}`,
             author: {
               "@type": "Person",
               name: "My Portfolio",
@@ -79,12 +77,10 @@ export default async function Blog({ params }) {
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl">
-        {post.output.frontmatter.title}
-      </h1>
+      <h1 className="title font-semibold text-2xl">{post.metadata.title}</h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.output.frontmatter.publishedAt)}
+          {formatDate(post.metadata.publishedAt)}
         </p>
       </div>
       <article className="prose">

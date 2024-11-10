@@ -95,22 +95,6 @@ function createHeading(level) {
   return Heading;
 }
 
-// function Note({ children }) {
-//   return (
-//     <div className="bg-blue-50 border-l-4 border-blue-500 text-blue-900 px-4 py-px">
-//       {children}
-//     </div>
-//   );
-// }
-
-// function Tip({ children }) {
-//   return (
-//     <div className="bg-green-50 border-l-4 border-green-500 text-green-900 px-4 py-px">
-//       {children}
-//     </div>
-//   );
-// }
-
 let components = {
   h1: createHeading(1),
   h2: createHeading(2),

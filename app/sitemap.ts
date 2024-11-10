@@ -10,8 +10,8 @@ export default async function sitemap() {
   }
 
   blogs.map((post) => ({
-    url: `${baseUrl}/blog/${post.frontmatter.slug}`,
-    lastModified: post.frontmatter.publishedAt,
+    url: `${baseUrl}/blog/${post.metadata.slug}`,
+    lastModified: post.metadata.publishedAt,
   }));
 
   let routes = ["", "/blog"].map((route) => ({

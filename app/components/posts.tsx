@@ -8,13 +8,12 @@ export async function BlogPosts() {
     <div>
       {allBlogs
         .sort((a, b) => {
-          if (
-            new Date(a.frontmatter.publishedAt) >
-            new Date(b.frontmatter.publishedAt)
-          ) {
-            return -1;
-          }
-          return 1;
+          if (!a.metadata.publishedAt || !b.metadata.publishedAt) return 0;
+
+          return new Date(a.metadata.publishedAt) >
+            new Date(b.metadata.publishedAt)
+            ? -1
+            : 1;
         })
         .map((post) => (
           <Link
@@ -24,10 +23,10 @@ export async function BlogPosts() {
           >
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
               <p className="text-neutral-600 dark:text-neutral-400 tabular-nums min-w-[120px] whitespace-nowrap">
-                {formatDate(post.frontmatter.publishedAt, false)}
+                {formatDate(post.metadata.publishedAt, false)}
               </p>
               <p className="text-neutral-900 dark:text-neutral-100 flex-1">
-                {post.frontmatter.title}
+                {post.metadata.title}
               </p>
             </div>
           </Link>

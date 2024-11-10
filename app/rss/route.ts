@@ -19,9 +19,9 @@ export async function GET() {
     })
     .map((post) => {
       return `<item>
-          <title>${post.frontmatter?.title || ""}</title>
-          <link>${baseUrl}/blog/${post.frontmatter?.slug}</link>
-          <description>${post.frontmatter?.summary || ""}</description>
+          <title>${post.metadata?.title || ""}</title>
+          <link>${baseUrl}/blog/${post.metadata?.slug}</link>
+          <description>${post.metadata?.summary || ""}</description>
           <pubDate>${new Date(post.createdAt).toUTCString()}</pubDate>
         </item>`;
     })
